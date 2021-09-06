@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
@@ -65,6 +66,20 @@ public class PaymentController {
         }
 
         return this.discoveryClient;
+    }
+
+    @GetMapping("/payment/sleep")
+    public String sleep(){
+        try{
+            TimeUnit.SECONDS.sleep(3);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return serverport;
+    }
+    @GetMapping("/payment/lb/{id}")
+    public String bl(@PathVariable("id") Integer id){
+        return serverport + "\t" +id;
     }
 
 }

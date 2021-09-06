@@ -10,8 +10,11 @@ eureka:
       #      代表将自己注册进eureka中的地址
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
   instance:
+#    在eureka中服务的名字
     instance-id: order80
+#    在服务名上面显示ip地址
     prefer-ip-address: true
+
 spring:
   application:
     name: cloud-order-service
